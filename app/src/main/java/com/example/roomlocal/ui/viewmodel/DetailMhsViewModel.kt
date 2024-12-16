@@ -3,6 +3,7 @@ package com.example.roomlocal.ui.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.roomlocal.data.entitiy.Mahasiswa
 import com.example.roomlocal.repository.RepositoryMhs
 import com.example.roomlocal.ui.navigation.DestinasiDetail
 import kotlinx.coroutines.delay
@@ -73,3 +74,13 @@ data class DetailUiState(
         get() = detailUiEvent != MahasiswaEvent ()
 }
 
+fun Mahasiswa.toDetailUiEvent () : MahasiswaEvent {
+    return MahasiswaEvent(
+        nim = nim,
+        nama = nama,
+        jenisKelamin = jenisKelamin,
+        alamat = alamat,
+        kelas = kelas,
+        angkatan = angkatan
+    )
+}
