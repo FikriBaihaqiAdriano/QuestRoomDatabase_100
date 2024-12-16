@@ -30,7 +30,11 @@ class UpdateMhsViewModel (
                 .toUIStateMhs()
         }
     }
-
+    fun updateState(mahasiswaEvent: MahasiswaEvent) {
+        updateUIState = updateUIState.copy(
+            mahasiswaEvent = mahasiswaEvent,
+        )
+    }
 
 
 
