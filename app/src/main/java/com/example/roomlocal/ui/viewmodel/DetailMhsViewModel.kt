@@ -2,6 +2,7 @@ package com.example.roomlocal.ui.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.roomlocal.repository.RepositoryMhs
 import com.example.roomlocal.ui.navigation.DestinasiDetail
 import kotlinx.coroutines.delay
@@ -57,5 +58,18 @@ class DetailMhsViewModel (
             }
         }
     }
+}
+
+data class DetailUiState(
+    val detailUiEvent: MahasiswaEvent = MahasiswaEvent (),
+    val isLoading: Boolean = false,
+    val isError: Boolean = false,
+    val errorMessage: String = ""
+) {
+    val isUiEventEmpty: Boolean
+        get() = detailUiEvent == MahasiswaEvent()
+
+    val isUiEventNotEmpty: Boolean
+        get() = detailUiEvent != MahasiswaEvent ()
 }
 
